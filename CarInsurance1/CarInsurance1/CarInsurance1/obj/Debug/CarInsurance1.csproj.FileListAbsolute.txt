@@ -161,7 +161,6 @@ C:\Users\Student\Documents\GitHub\demo\CarInsuranceProject\CarInsurance1\CarInsu
 C:\Users\Student\Documents\GitHub\demo\CarInsuranceProject\CarInsurance1\CarInsurance1\CarInsurance1\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\Student\Documents\GitHub\demo\CarInsuranceProject\CarInsurance1\CarInsurance1\CarInsurance1\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 C:\Users\Student\Documents\GitHub\demo\CarInsuranceProject\CarInsurance1\CarInsurance1\CarInsurance1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Student\Documents\GitHub\demo\CarInsuranceProject\CarInsurance1\CarInsurance1\CarInsurance1\obj\Debug\CarInsurance1.csprojAssemblyReference.cache
 C:\Users\Student\Documents\GitHub\demo\CarInsuranceProject\CarInsurance1\CarInsurance1\CarInsurance1\obj\Debug\CarInsurance1.csproj.CoreCompileInputs.cache
 C:\Users\Student\Documents\GitHub\demo\CarInsuranceProject\CarInsurance1\CarInsurance1\CarInsurance1\obj\Debug\CarInsurance1.csproj.CopyComplete
 C:\Users\Student\Documents\GitHub\demo\CarInsuranceProject\CarInsurance1\CarInsurance1\CarInsurance1\obj\Debug\CarInsurance1.dll

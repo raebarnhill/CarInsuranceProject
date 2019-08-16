@@ -30,7 +30,7 @@ namespace CarInsurance1.Controllers
 
 
         [HttpPost]
-        public ActionResult InsuranceQuote(string firstName, string lastName, string emailAddress, System.DateTime dateOfBirth, string carMake, string carModel, int carYear, bool dui, bool fullCoverage, int speedTickets)
+        public ActionResult InsuranceQuote(string firstName, string lastName, string emailAddress, System.DateTime dateOfBirth, string carMake, string carModel, int carYear, int speedingTickets, bool dui = false, bool fullCoverage = false)
         {
             if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(emailAddress) || string.IsNullOrEmpty(carMake) || string.IsNullOrEmpty(carModel))
             {
@@ -38,7 +38,26 @@ namespace CarInsurance1.Controllers
             }
             else
             {
-                decimal quote = 50;
+                using (InsuranceEntities db = new InsuranceEntities())
+                {
+                    decimal quote = 50;
+
+                    var insuranceQuote = new Insuree();
+                    insuranceQuote.FirstName = firstName;
+                    insuranceQuote.LastName = lastName;
+                    insuranceQuote.EmailAddress = emailAddress;
+                    insuranceQuote.CarMake = carMake;
+                    insuranceQuote.CarModel = carModel;
+                    insuranceQuote.CarYear = carYear;
+                    insuranceQuote.DUI = dui;
+                    insuranceQuote.CoverageType = fullCoverage;
+                    insuranceQuote.SpeedingTickets = speedingTickets;
+                    insuranceQuote.DateOfBirth = dateOfBirth;
+                    insuranceQuote.Quote = quote;
+
+
+
+                  
                 decimal duiPercentage = .25m;
                 decimal addFullCoverage = .5m;
                 int age = CalculateAge(dateOfBirth);
@@ -89,9 +108,9 @@ namespace CarInsurance1.Controllers
                     quote *= duiPercentage;
                 }
 
-                if (speedTickets > 0)
+                if (speedingTickets > 0)
                 {
-                    quote += speedTickets * 10;
+                    quote += speedingTickets * 10;
                 }
 
                 if (fullCoverage == true)
@@ -100,21 +119,8 @@ namespace CarInsurance1.Controllers
                 }
 
 
-                using (InsuranceEntities db = new InsuranceEntities())
-                {
-                    var insuranceQuote = new Insuree();
-                    insuranceQuote.FirstName = firstName;
-                    insuranceQuote.LastName = lastName;
-                    insuranceQuote.EmailAddress = emailAddress;
-                    insuranceQuote.CarMake = carMake;
-                    insuranceQuote.CarYear = carYear;
-                    insuranceQuote.DUI = dui;
-                    insuranceQuote.CoverageType = fullCoverage;
-                    insuranceQuote.SpeedingTickets = speedTickets;
-                    insuranceQuote.DateOfBirth = dateOfBirth;
-                    insuranceQuote.Quote = quote;
-
-                    //db.InsuranceQuotes.Add(insuranceQuote);
+              
+                
                     db.Insurees.Add(insuranceQuote);
                     db.SaveChanges();
                 }
